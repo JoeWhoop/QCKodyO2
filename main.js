@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", function() {
         var link1URL = "https://web.miniextensions.com/S0nDKlj5o22zpJjfBuAk?prefill_Mechanic=" + selectedMechanic;
         var link2URL = "https://web.miniextensions.com/p7ZHq803Sx4FebfxAr1M?prefill_Mechanic=" + selectedMechanic;
 
+        // Dodaj wartość stacji do linków, jeśli stacja nie jest "QC - A7"
+        if (stationValue !== "QC - A7") {
+            var selectedStation = encodeURIComponent(stationValue);
+            link1URL += "&prefill_Station=" + selectedStation;
+            link2URL += "&prefill_Station=" + selectedStation;
+        }
+
         // Jeśli wybrano QC - A7 w dropdownie dla stacji, użyj linku 1
         if (stationValue === "QC - A7") {
             link1.href = link1URL;
